@@ -77,7 +77,7 @@ className="text-decoration-none  d-flex align-items-center gap-2 side-bar-link"
   style={{ display: IsOpen ? "block" : "none" }}
   className="side-bar-text"
 >
-Add26565632686526uuk
+Add26565632686526uuks;sfkpdkd'lfdk;dfkl'dflf;lf'ld;561323
 </p>
 </NavLink>
 </>
