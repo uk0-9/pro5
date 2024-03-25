@@ -17,12 +17,12 @@ export default function Sidebar() {
   const Size = WindowSizes.Size;
   console.log(Size);
   
-  const renderTooltip1 = (props) => (
+  const users = (props) => (
     <Tooltip id="button-tooltip" {...props}>
       Users
     </Tooltip>
   );
-  const renderTooltip2 = (props) => (
+  const add_user = (props) => (
     <Tooltip id="button-tooltip" {...props}>
       Add user
     </Tooltip>
@@ -47,26 +47,52 @@ export default function Sidebar() {
         position: Size < "780" ? "fixed" :"sticky" ,
       }}
     >
-         <OverlayTrigger
-      placement="right"
-      overlay={renderTooltip1}
-      style={{}}
+       
+
+
+       
+{/* Users */}
+{Size>"780"&&IsOpen?
+<NavLink
+style={{ padding: IsOpen ? "10px 8px 10px 8px" : "10px 8px" }}
+to={"Users"}
+className="text-decoration-none  d-flex align-items-center gap-2 side-bar-link"
+>
+<FontAwesomeIcon icon={faUsers} className="side-bar-text-icone  me-1" />
+<p
+  style={{ display: IsOpen ? "block" : "none" }}
+  className="side-bar-text"
+>
+Users
+</p>
+</NavLink>
+:
+      <OverlayTrigger
+        placement="right"
+
+        overlay={users}
       >
-      <NavLink
-        style={{ padding: IsOpen ? "10px 8px 10px 8px" : "10px 8px" }}
-        to={"users"}
-        className="text-decoration-none  d-flex align-items-center gap-2 side-bar-link"
-      >
-        <FontAwesomeIcon icon={faUsers} className="side-bar-text-icone  me-1" />
-        <p
-          style={{ display: IsOpen ? "block" : "none" }}
-          className="side-bar-text"
+        <NavLink
+          style={{ padding: IsOpen ? "10px 8px 10px 8px" : "10px 8px" }}
+          to={"Users"}
+          className="text-decoration-none  d-flex align-items-center gap-2 side-bar-link"
         >
-          usars
-        </p>
-      </NavLink>
+          <FontAwesomeIcon icon={faUsers} className="side-bar-text-icone  me-1" />
+          <p
+            style={{ display: IsOpen ? "block" : "none" }}
+            className="side-bar-text"
+          >
+            Users
+          </p>
+        </NavLink>
       </OverlayTrigger>
-      {Size>"780"&&IsOpen?<>
+}
+
+
+
+{/* Add_users */}
+
+      {Size>"780"&&IsOpen?
 <NavLink
 style={{ padding: IsOpen ? "10px 8px 10px 8px" : "10px 8px" }}
 to={"user/Add"}
@@ -77,18 +103,14 @@ className="text-decoration-none  d-flex align-items-center gap-2 side-bar-link"
   style={{ display: IsOpen ? "block" : "none" }}
   className="side-bar-text"
 >
-Add26565632686526uuks;sfkpdkd'lfdk;dfkl'dflf;lf'ld;561323
+Add User
 </p>
 </NavLink>
-</>
-
 :
-
-      <>
       <OverlayTrigger
         placement="right"
 
-        overlay={renderTooltip2}
+        overlay={add_user}
       >
         <NavLink
           style={{ padding: IsOpen ? "10px 8px 10px 8px" : "10px 8px" }}
@@ -100,12 +122,13 @@ Add26565632686526uuks;sfkpdkd'lfdk;dfkl'dflf;lf'ld;561323
             style={{ display: IsOpen ? "block" : "none" }}
             className="side-bar-text"
           >
-            Add26565632686526uuk
+            Add User
           </p>
         </NavLink>
       </OverlayTrigger>
-    </>
 }
+
+
     </div>
     </>
   );

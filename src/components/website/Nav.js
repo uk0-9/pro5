@@ -2,8 +2,11 @@
 
 import { Link,NavLink } from 'react-router-dom';
 import cookie from 'cookie-universal'
-import { BASEURL, LOGOUT } from '../../Api/Api';
-import axios from 'axios';
+import { LOGOUT } from '../../Api/Api';
+import { Axios } from '../../Api/Axios';
+
+
+
 export default function Nav(pro) {
    let mode=1
 
@@ -18,13 +21,10 @@ if(cookies.get("Bearer")){
 
 async function logout(){
   try{
-const res= await axios.get(`${BASEURL}/${LOGOUT}`,{
-  headers:{
-    authorization: "Bearer "+cookies.get("Bearer"),
-  }
-    })
-    cookies.remove("Bearer")
-    window.location.pathname="/"
+const res= await Axios.get(`/${LOGOUT}`)
+console.log(res)
+cookies.remove("Bearer")
+window.location.pathname="/"
 }
 
 catch(err){
@@ -75,6 +75,7 @@ return (
  <Link ><button onClick={logout} className=' me-3 btn  btn-secondary'>Log out <i className="fa-solid fa-right-to-bracket"></i></button></Link> 
    <Link to="/dashboard"> <button className='me-3 btn  btn-secondary'>Dashboard <i className="fa-solid fa-gauge"></i></button></Link>
   <Link to="/users"> <button className='me-3 btn  btn-secondary'>usar <i className="fa-solid fa-user"></i></button></Link>
+ 
  </>
  :  
  <>
