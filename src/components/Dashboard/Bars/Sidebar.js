@@ -77,7 +77,7 @@ className="text-decoration-none  d-flex align-items-center gap-2 side-bar-link"
   style={{ display: IsOpen ? "block" : "none" }}
   className="side-bar-text"
 >
-  Add user
+Add26565632686526uuk
 </p>
 </NavLink>
 </>
@@ -87,7 +87,7 @@ className="text-decoration-none  d-flex align-items-center gap-2 side-bar-link"
       <>
       <OverlayTrigger
         placement="right"
-        
+
         overlay={renderTooltip2}
       >
         <NavLink
@@ -100,7 +100,7 @@ className="text-decoration-none  d-flex align-items-center gap-2 side-bar-link"
             style={{ display: IsOpen ? "block" : "none" }}
             className="side-bar-text"
           >
-            Add user
+            Add26565632686526uuk
           </p>
         </NavLink>
       </OverlayTrigger>
