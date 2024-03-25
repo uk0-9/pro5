@@ -1,0 +1,145 @@
+.form-contanar{
+  background-image:linear-gradient(110deg,white 0%,white 50%,transparent 50%),
+   url(../../imgs/geranimo-WJkc3xZjSXw-unsplash.jpg);
+  background-position: center;
+  background-size:cover;
+  background-repeat: no-repeat;
+  width: 90%;
+height: 34rem;
+border-radius: 12px;
+box-shadow:0 0 20px rgba(0, 0, 0, 0.3) ;
+padding: 20px;
+}
+.costom-form{
+  width: 50%;
+}
+.form-div input:focus {
+  box-shadow: 0 0 10px rgb(153, 152, 152) inset;
+} 
+
+
+.form-div{
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.form-div label
+.form-div input{
+  display: block;
+}
+
+.form-div input{
+  transition: border-color 0.3s ease;
+  padding: 20px 20px;
+  outline: none;
+  border-radius: 3px;
+  border: 0px;
+  background-color: white ;
+  width: 80%;
+  border-bottom: 3px solid transparent ;
+  /* font-family: 'Lato', sans-serif;  */
+   box-shadow: 0 0 10px rgb(153, 152, 152) inset;
+}
+.form-div input:focus:valid{
+border-bottom:3px solid green;
+  background-color: #15ff0011;
+}
+.form-div input:focus:not(:valid){
+  border-bottom:3px solid red;
+background-color: #ff131310;
+}
+.form-div input:placeholder-shown~label{
+  opacity: 0;
+  visibility:hidden;
+  top: 20px;
+}
+ .form-div label{
+  position:absolute;
+  top: -20px;
+  left: 0px;
+  font-size: 13px;
+  font-weight: bold;
+  color:gray;
+  transition: 0.3s;
+} 
+
+
+
+
+
+
+ 
+
+ @media(max-width:992px){
+  .costom-form{
+    width: 100%;
+  }
+  .form-contanar{
+    background-image:linear-gradient(rgba(255, 255, 255, 0.8) 0%,rgba(255, 255, 255, 0.8) 100%),
+     url(../../imgs/geranimo-WJkc3xZjSXw-unsplash.jpg);
+  }
+  .form-div input{
+    width: 100%;
+  }
+  .google-btn{
+    background-color: rgb(0, 0, 0,0.8);
+  }
+  .google-icon{
+    color: #ffffff;
+  }
+}
+
+.social {
+  color: #333;
+  font-size: 14px;
+  text-decoration: none;
+  margin: 15px 0;
+}
+
+
+
+
+
+
+
+
+
+.social-container {
+  margin: 20px 0;
+}
+
+.social-container a {
+  border: 1px solid #DDDDDD;
+  border-radius: 50%;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 5px;
+  height: 40px;
+  width: 40px;
+}
+
+
+
+
+
+
+
+
+.social-container a {
+	border: 1px solid #DDDDDD;
+	border-radius: 50%;
+	display: inline-flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0 5px;
+	height: 40px;
+	width: 40px;
+} 
+
+
+
+
+
+
+
