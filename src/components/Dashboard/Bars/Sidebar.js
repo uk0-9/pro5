@@ -37,7 +37,7 @@ export default function Sidebar() {
       width:"100%",
       height:"100vh",      
       backgroundColor:"rgba(154,160, 167,0.3)",
-      display:Size<"780"?IsOpen?"none":"block":"none"
+      display:Size<"780"?IsOpen?"none":"block":"none",
     }}></div>
     <div
       className="side-bar pt-2"

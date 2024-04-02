@@ -19,6 +19,7 @@ export default function RequireAuth() {
 //cookie&&token
     const cookies=cookie()
    const get_token= cookies.get("Bearer")
+   console.log(get_token)
   return (
     get_token?user===""?<Loading/>:<Outlet/>:<Navigate to={"/login"} replace={true}/>
   )

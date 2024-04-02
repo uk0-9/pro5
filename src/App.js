@@ -39,13 +39,13 @@ export default function App() {
           <Route path="/login" element={<><Nav/><Login2/></>} />
           <Route path="/auth/google/callback" element={<Google_callback/>} />
           {/* Protected Routes */}
-          <Route  element={<RequireAuth/>} >
+          <Route  element={<RequireAuth/>} ></Route>
             <Route path="/dashboard" element={<Dashboard/>} >
               <Route path="users" element={<Users/>} />
               <Route path="users/:id" element={<Updatd_user/>} />
               <Route path="user/Add" element={<Add_user/>}/>
             </Route>
-          </Route>
+          
         </Routes>
       </BrowserRouter>
   );
