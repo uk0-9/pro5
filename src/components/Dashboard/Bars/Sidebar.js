@@ -1,6 +1,6 @@
 import { faUserPlus, faUsers } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Minu } from "../../../context/Minu_context";
 import { WindowSize } from "../../../context/WindowContext";
@@ -8,8 +8,23 @@ import { WindowSize } from "../../../context/WindowContext";
 import Button from 'react-bootstrap/Button';
 import OverlayTrigger from 'react-bootstrap/OverlayTrigger';
 import Tooltip from 'react-bootstrap/Tooltip';
-
+import { Axios } from "../../../Api/Axios";
+import { USER } from "../../../Api/Api";
 export default function Sidebar() {
+
+
+
+  const [user,setuser]=useState("")
+
+useEffect(()=>{
+    
+Axios.get(`/${USER}`)   
+      .then((data)=>setuser(data.data))
+
+},[])
+
+
+
   const minu = useContext(Minu);
   const IsOpen = minu.IsOpen;
 
@@ -25,6 +40,11 @@ export default function Sidebar() {
   const add_user = (props) => (
     <Tooltip id="button-tooltip" {...props}>
       Add user
+    </Tooltip>
+  );
+  const Writer = (props) => (
+    <Tooltip id="button-tooltip" {...props}>
+      Writer
     </Tooltip>
   );
 
@@ -50,6 +70,7 @@ export default function Sidebar() {
        
 
 
+       {user.role==="1995"?<>
        
 {/* Users */}
 {Size>"780"&&IsOpen?
@@ -127,6 +148,90 @@ Add User
         </NavLink>
       </OverlayTrigger>
 }
+
+{/* Writer */}
+
+{Size>"780"&&IsOpen?
+<NavLink
+style={{ padding: IsOpen ? "10px 8px 10px 8px" : "10px 8px" }}
+to={"Writer"}
+className="text-decoration-none  d-flex align-items-center gap-2 side-bar-link"
+>
+<FontAwesomeIcon icon={faUserPlus} className="side-bar-text-icone  me-1" />
+<p
+  style={{ display: IsOpen ? "block" : "none" }}
+  className="side-bar-text"
+>
+Writer
+</p>
+</NavLink>
+:
+      <OverlayTrigger
+        placement="right"
+
+        overlay={Writer}
+      >
+        <NavLink
+          style={{ padding: IsOpen ? "10px 8px 10px 8px" : "10px 8px" }}
+          to={"Writer"}
+          className="text-decoration-none  d-flex align-items-center gap-2 side-bar-link"
+        >
+          <FontAwesomeIcon icon={faUserPlus} className="side-bar-text-icone  me-1" />
+          <p
+            style={{ display: IsOpen ? "block" : "none" }}
+            className="side-bar-text"
+          >
+            Writer
+          </p>
+        </NavLink>
+      </OverlayTrigger>
+}
+
+
+       </>:user.role==="1996"?<>
+      
+{/* Writer */}
+
+      {Size>"780"&&IsOpen?
+<NavLink
+style={{ padding: IsOpen ? "10px 8px 10px 8px" : "10px 8px" }}
+to={"Writer"}
+className="text-decoration-none  d-flex align-items-center gap-2 side-bar-link"
+>
+<FontAwesomeIcon icon={faUserPlus} className="side-bar-text-icone  me-1" />
+<p
+  style={{ display: IsOpen ? "block" : "none" }}
+  className="side-bar-text"
+>
+Writer
+</p>
+</NavLink>
+:
+      <OverlayTrigger
+        placement="right"
+
+        overlay={Writer}
+      >
+        <NavLink
+          style={{ padding: IsOpen ? "10px 8px 10px 8px" : "10px 8px" }}
+          to={"Writer"}
+          className="text-decoration-none  d-flex align-items-center gap-2 side-bar-link"
+        >
+          <FontAwesomeIcon icon={faUserPlus} className="side-bar-text-icone  me-1" />
+          <p
+            style={{ display: IsOpen ? "block" : "none" }}
+            className="side-bar-text"
+          >
+            Writer
+          </p>
+        </NavLink>
+      </OverlayTrigger>
+}
+
+       </>:<></>}
+
+
+
 
 
     </div>

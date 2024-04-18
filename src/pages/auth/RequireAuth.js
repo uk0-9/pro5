@@ -5,7 +5,8 @@ import axios from 'axios';
 import { BASEURL, USER } from '../../Api/Api';
 import Loading from '../../components/website/Loading';
 import { Axios } from '../../Api/Axios';
-export default function RequireAuth() {
+import Err403 from '../../pages/auth/Err403';
+export default function RequireAuth({allowedRole}) {
 // user
     const [user,setuser]=useState("")
     const location=useNavigate()
@@ -19,8 +20,7 @@ export default function RequireAuth() {
 //cookie&&token
     const cookies=cookie()
    const get_token= cookies.get("Bearer")
-   console.log(get_token)
   return (
-    get_token?user===""?<Loading/>:<Outlet/>:<Navigate to={"/login"} replace={true}/>
+    get_token?user===""?<Loading/>:user.role === allowedRole? <Outlet/>:<Err403/>:<Navigate to={"/login"} replace={true}/>
   )
 }

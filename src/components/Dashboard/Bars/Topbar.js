@@ -44,7 +44,7 @@ Axios.get(`/${USER}`)
         <div className="icon-container">
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}  className='settings-icon' ><FontAwesomeIcon   icon={faCog} /></Navbar.Toggle>
         </div>
-        <span className="username">Admein</span>
+        <span className="username">{name}</span>
         <img
           className="imgcard"
           alt=""

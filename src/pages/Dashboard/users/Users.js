@@ -30,7 +30,7 @@ Axios.get(`/${USERS}`)
 
 
 
-    
+
 
 // filter users
     // const users_filter=users.filter((users)=>users.id!==dont_show_yor_user.id)
@@ -45,7 +45,7 @@ Axios.get(`/${USERS}`)
          <p className='fw-bold text-muted '>{usars.id}</p>
     </td>
     <td className='t'>
-          <p className='fw-bold text-muted mb-0'>{usars.name}</p>
+          <p className='fw-bold text-muted mb-0'>{usars.name===dont_show_yor_user.name?usars.name+":(You)":usars.name}</p>
     </td>
     <td className='t'>
     <p className='text-muted fw-bold mb-0'>{usars.email}</p>
@@ -53,27 +53,38 @@ Axios.get(`/${USERS}`)
     <td className='t'>
     <p className='text-muted fw-bold mb-0'>{usars.role==="1995"?"Admin":usars.role==="2001"?"User":usars.role==="1996"?"Writer":"Non"}</p>
     </td>
+   
+   
     <td className='t'>
     <Link to={`${usars.id}`}><MDBBadge color='success' pill>
       <i className="fa-solid fa-user-pen   text-light   cursor"></i>
       </MDBBadge></Link>
-      </td>
+      </td>{dont_show_yor_user.id!==usars.id? <>
     <td className='t'>
       <MDBBadge color='danger' pill onClick={()=>{delet_usars(usars.id)}}>
       <i  className="fa-solid fa-user-xmark  cursor"></i>     
      </MDBBadge>
     </td>
+     </>
+     :
+     <td className='t'>
+     <MDBBadge color='danger' pill >
+    No   
+    </MDBBadge>
+   </td>
+     } 
   </tr>
    )
    // delet_usars
  async  function delet_usars(id){
+  if(dont_show_yor_user.id!==id){
 try{
 const res = await Axios.delete(`/${USER}/${id}`)
   setrefresh_usars((ke)=>!ke)
 }
 catch (err) {
   console.log(err);
-} 
+} }
 
    }
 
@@ -94,7 +105,7 @@ catch (err) {
       </MDBTableHead>
       <MDBTableBody>
       
-      {users.length===0?<tr><td colSpan={12} className='text-center fa-2x text-dark'><div>Loading...</div></td></tr>:users.length<=1&&nousers===true?<tr><td colSpan={12} className='text-center fa-3x text-dark'>No users found</td></tr>:show_usars}
+      {users.length===0?<tr><td colSpan={12} className='text-center fa-2x text-dark'><div>Loading...</div></td></tr>:users.length<=0&&nousers===true?<tr><td colSpan={12} className='text-center fa-3x text-dark'>No users found</td></tr>:show_usars}
       
       </MDBTableBody>
     </MDBTable>

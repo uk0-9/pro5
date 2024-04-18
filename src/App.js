@@ -25,6 +25,8 @@ import RequireAuth from './pages/auth/RequireAuth';
 import Updatd_user from './pages/Dashboard/users/Updatd_user';
 import Add_user from './pages/Dashboard/users/Add_user';
 
+import Writer from './pages/auth/Writer';
+
 
 
 export default function App() {
@@ -39,13 +41,17 @@ export default function App() {
           <Route path="/login" element={<><Nav/><Login2/></>} />
           <Route path="/auth/google/callback" element={<Google_callback/>} />
           {/* Protected Routes */}
-          <Route  element={<RequireAuth/>} ></Route>
-            <Route path="/dashboard" element={<Dashboard/>} >
-              <Route path="users" element={<Users/>} />
-              <Route path="users/:id" element={<Updatd_user/>} />
-              <Route path="user/Add" element={<Add_user/>}/>
-            </Route>
-          
+      <Route  element={<RequireAuth/>}></Route>
+        <Route path="/dashboard" element={<Dashboard />}>
+          <Route element={<RequireAuth allowedRole={"1995"} />}>
+            <Route path="users" element={<Users />} />
+            <Route path="users/:id" element={<Updatd_user />} />
+            <Route path="user/Add" element={<Add_user />} />
+          </Route>
+          <Route element={<RequireAuth allowedRole={"1996"||"1995"} />}>
+            <Route path="Writer" element={<Writer />} />
+          </Route>
+        </Route>
         </Routes>
       </BrowserRouter>
   );

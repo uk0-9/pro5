@@ -39,6 +39,7 @@ const cookies=cookie()
 location("/",{replace:true})
 const token=res.data.token
 cookies.set("Bearer",token)
+window.location.reload()
       }
       catch (err) {
         setLoading(false)

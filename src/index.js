@@ -12,6 +12,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/js/bootstrap.min.js';
 //auth css
 import"./css/auth/Form.css"
+import"./css/auth/Err403.css"
 // import"./css/auth/Login.css"
 // import"./css/auth/Signup.css"
 //dashboard
