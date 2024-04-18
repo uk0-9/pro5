@@ -24,3 +24,7 @@ export default function RequireAuth({allowedRole}) {
     get_token?user===""?<Loading/>:user.role === allowedRole? <Outlet/>:<Err403/>:<Navigate to={"/login"} replace={true}/>
   )
 }
+
+
+
+
