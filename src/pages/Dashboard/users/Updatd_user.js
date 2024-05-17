@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { UPDATE_USER, USER } from "../.././../Api/Api";
 import Loading_page from "../../../components/website/Loading";
 import Form from "react-bootstrap/Form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Minu } from "../../../context/Minu_context";
 import { Axios } from "../../../Api/Axios";
 export default function Updatd_user() {
@@ -14,25 +14,29 @@ export default function Updatd_user() {
   //minu
   const minu = useContext(Minu);
   const IsOpen = minu.IsOpen;
-  const id = window.location.pathname.split("/").slice(-1)[0];
+  //id
+  const {id} =useParams()
   //location
   const location = useNavigate();
-
   //Loading
   const [Loading, setLoading] = useState(false);
 
+const Navigate=useNavigate()
   //oncange
 
   useEffect(() => {
+    setLoading(true)
     Axios.get(`${USER}/${id}`)
       .then((se) => {
         setEmail(se.data.email);
         setName(se.data.name);
         setRole(se.data.role);
+        setLoading(false)
         setSive_btn(true);
       })
-      .catch((err) => console.log(err));
+      .catch(() =>Navigate("/dashboard/Users/page/404",{replace:true}));
   }, []);
+  
 
   //submit function
   async function submit(e) {
@@ -54,6 +58,7 @@ export default function Updatd_user() {
 
   return (
     <>
+    
       {Loading && <Loading_page />}
       <Form
         onSubmit={submit}
@@ -109,6 +114,7 @@ export default function Updatd_user() {
               <option value="1995">Admin</option>
               <option value="2001">Usar</option>
               <option value="1996">Writer</option>
+              <option value="1999">Product Manger</option>
             </Form.Select>
             <Form.Label>Role</Form.Label>
           </Form.Group>
@@ -119,6 +125,7 @@ export default function Updatd_user() {
           )}
         </div>
       </Form>
+      
     </>
   );
 }

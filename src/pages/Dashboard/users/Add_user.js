@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import { BASEURL, LOGIN, SIGNUP, USER } from "../../../Api/Api";
 import Loading_page from "../../../components/website/Loading";
@@ -7,6 +7,13 @@ import Form from "react-bootstrap/Form";
 import { useNavigate } from "react-router-dom";
 import { Axios } from "../../../Api/Axios";
 export default function Add_user() {
+     //ref
+ const focus=useRef("")
+ //Handil ref
+ useEffect(()=>{
+   focus.current.focus()
+ },[])
+
   //location
   const location = useNavigate();
 
@@ -34,7 +41,7 @@ export default function Add_user() {
     try {
       await Axios.post(`/${USER}/add`, form);
       setLoading(false);
-      location("/", { replace: true });
+      location("/dashboard/Users");
     } catch (err) {
       setLoading(false);
       console.log(err);
@@ -53,7 +60,7 @@ export default function Add_user() {
   return (
     <>
       {Loading && <Loading_page />}
-      <div className="contenar w-100" style={{ marginTop: "-20px" }}>
+      <div className="contenar" style={{ marginTop: "-20px",width:"93%" }}>
         <div className=" centar vh-100">
           <Form onSubmit={submit} className="form-contanar">
             <div className="costom-form">
@@ -64,6 +71,7 @@ export default function Add_user() {
                 controlId="exampleForm.ControlInput1"
               >
                 <Form.Control
+                ref={focus}
                   onChange={onChange}
                   value={form.name}
                   name="name"
@@ -83,7 +91,7 @@ export default function Add_user() {
                   onChange={onChange}
                   value={form.email}
                   name="email"
-                  type="email"
+                  type="Email"
                   className=""
                   placeholder="Your Email"
                   required
@@ -122,6 +130,7 @@ export default function Add_user() {
                   <option value="1995">Admin</option>
                   <option value="2001">Usar</option>
                   <option value="1996">Writer</option>
+                  <option value="1999">Product Manger</option>
                 </Form.Select>
                 <Form.Label>Role</Form.Label>
               </Form.Group>

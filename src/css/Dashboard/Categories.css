@@ -1,0 +1,84 @@
+
+/* 
+display: flex;
+flex-direction: row;
+flex-wrap: wrap; */
+/* img pro صور المنتج */
+/* تنسيق عام للعنصر */
+/* to categories style */
+.imgcard-Categories-page{
+    width:60%;
+    height:160px;
+    background-repeat:no-repeat;
+    background-size:cover;
+    border-radius:8px;
+    margin: 0;
+    padding: 0;
+  }
+  
+
+  /* تنسيق خاص بالهواتف المحمولة */
+  @media (max-width: 767px) {
+    .imgcard-Categories-page{
+      width:200px;
+      height:150px;
+      background-repeat:no-repeat;
+      background-size:cover;
+      border-radius:8px;
+    }
+  }
+  
+  
+
+
+  /* تنسيق خاص بالأجهزة اللوحية مثل الأيباد */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .imgcard-Categories-page {
+      width:60%;
+      height:120px;
+      background-repeat:no-repeat;
+      background-size:cover;
+      border-radius:8px;
+    }
+  }
+
+
+  /* to add categories */
+  .imgcard-Categories-add-page{
+    width:100%;
+    height:auto;
+    background-repeat:no-repeat;
+    background-size:cover;
+    border-radius:8px;
+    margin: 0;
+    padding: 0;
+  }
+  /* تنسيق خاص بالهواتف المحمولة */
+  @media (max-width: 767px) {
+    .imgcard-Categories-add-page{
+      width:100%;
+      height:auto;
+      background-repeat:no-repeat;
+      background-size:cover;
+      border-radius:8px;
+    }
+  }
+  
+  
+  /* تنسيق خاص بالأجهزة اللوحية مثل الأيباد */
+  @media (min-width: 768px) and (max-width: 1024px) {
+    .imgcard-Categories-add-page {
+       width:100%;
+    height:auto;
+      background-repeat:no-repeat;
+      background-size:cover;
+      border-radius:8px;
+    }
+  }
+
+
+
+
+
+
+ 

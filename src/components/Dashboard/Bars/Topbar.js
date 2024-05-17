@@ -1,28 +1,22 @@
-import Button from 'react-bootstrap/Button';
+
 import Container from 'react-bootstrap/Container';
-import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
-import { USER } from '../../../Api/Api';
-import { useContext, useEffect, useState } from 'react';
-import { Axios } from '../../../Api/Axios';
+import { useContext } from 'react';
 import { Minu } from "../../../context/Minu_context";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faCog, faList } from '@fortawesome/free-solid-svg-icons';
-import { Link } from 'react-router-dom';
-import { NavbarToggle } from 'react-bootstrap';
+import { faCog, faList } from '@fortawesome/free-solid-svg-icons';
+import { Usar } from '../../../context/usar';
 export default function Topbar() {
   const minu=useContext(Minu)
   const setIsOpen=minu.setIsOpen
   // user
-const [name,setname]=useState("")
-console.log(name)
-useEffect(()=>{
-Axios.get(`/${USER}`)   
-.then((data)=>setname(data.data.name))
-},[])
+
+
+const usar =useContext(Usar)
+  const usar_data = usar.usar_data
 
   return (
     <div className='top-bar'>
@@ -44,7 +38,7 @@ Axios.get(`/${USER}`)
         <div className="icon-container">
         <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${expand}`}  className='settings-icon' ><FontAwesomeIcon   icon={faCog} /></Navbar.Toggle>
         </div>
-        <span className="username">{name}</span>
+        <span className="username">{usar_data.name}</span>
         <img
           className="imgcard"
           alt=""
@@ -71,7 +65,7 @@ Axios.get(`/${USER}`)
                   <Nav.Link href="/">go to webside</Nav.Link>
                   <Nav.Link href="/">Users</Nav.Link>
                   <NavDropdown
-                    title={name}
+                    title={usar_data.name}
                     id={`offcanvasNavbarDropdown-expand-${expand}`}
                   >
                     <NavDropdown.Item href="#action3">logaut</NavDropdown.Item>

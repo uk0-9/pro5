@@ -7,4 +7,10 @@ export const LOGOUT=`logout`
 export const GOOGLE_CALL_BACK=`auth/google/callback`
 export const USER=`user`
 export const UPDATE_USER=`user/edit`
- 
+export const CATEGORIES=`categories`
+export const CATEGORY=`category`
+export const UPDATE_CATEGORY=`category/edit`
+export const PRODUCTS=`products`
+export const PRODUCT=`product`
+export const UPDATE_PRODUCT=`product/edit`
+

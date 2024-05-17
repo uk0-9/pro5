@@ -1,0 +1,41 @@
+.page_404 {
+  padding: 40px 0;
+  background: #f8f9fa; /* تغيير الخلفية إلى لون مناسب */
+}
+
+
+
+.content_box_404 {
+
+  text-align: center; /* محاذاة النص في المنتصف */
+}
+
+.content_box_404 h3 {
+  font-size: 40px; /* تكبير حجم العنوان */
+  margin-bottom: 15px; /* زيادة التباعد بين العناوين والفقرات */
+}
+
+.content_box_404 p {
+  font-size: 18px; /* زيادة حجم الفقرات */
+  margin-bottom:30px; /* زيادة التباعد بين الفقرات والزر */
+}
+
+.link_404 {
+  color: #fff;
+  padding: 12px 24px;
+  background: #007bff; /* تغيير لون الزر */
+  border-radius: 4px; /* تقريب الحواف */
+  text-decoration: none; /* إزالة التزيين الافتراضي للرابط */
+  transition: background-color 0.4s ease; /* إضافة تحول سلس عند التحويل */
+}
+
+.link_404:hover {
+  background: #0056b3; /* تغيير لون الزر عند التحويل */
+}
+.four_zero_four_bg{
+ 
+    background-image: url(https://miro.medium.com/v2/resize:fit:1400/1*zE2qnVTJehut7B8P2aMn3A.gif);
+       height: 400px;
+       background-position: center;
+    }
+    
