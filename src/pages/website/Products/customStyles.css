@@ -1,0 +1,14 @@
+/* إضافة بعض التنسيقات لتحسين عرض المنتجات داخل شريط التمرير */
+.slick-prev:before, .slick-next:before {
+    font-family: 'slick';
+     font-size: 30px; 
+    line-height: 1;
+    opacity: .75;
+    color: rgb(0, 0, 0);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.skeleton_in_Slider {
+   
+margin-left: -250%;
+}

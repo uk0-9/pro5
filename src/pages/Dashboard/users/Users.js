@@ -3,12 +3,14 @@ import {USER, USERS } from '../../../Api/Api'
 import { Axios } from '../../../Api/Axios';
 import { Usar } from '../../../context/usar';
 import Tableshow from '../Tableshow';
+import { Form } from 'react-bootstrap';
 export default function Users() { 
   //States
   const [users,setusers]=useState([])  
+  console.log(users)
   const [nousers,setnousers]=useState(false)  
   const [refresh_usars,setrefresh_usars]=useState(false)
-  const [limit,setlimit]=useState(3)
+  const [limit,setlimit]=useState(10)
   const [page,setpage]=useState(1)
   const [total,settotal]=useState(0)
   const [loading,setloading]=useState(false)
@@ -41,7 +43,7 @@ Axios.get(`/${USERS}?limit=${limit}&page=${page}`)
     }
   
        }
-   
+
    const header=[
     {
       key:"name",
@@ -50,14 +52,24 @@ Axios.get(`/${USERS}?limit=${limit}&page=${page}`)
     {
       key:"email",
       name:"Email"
+    }, 
+    {
+      key:"created_at",
+      name:"created"
+    },
+    {
+      key:"updated_at",
+      name:"last login"
     },
     {
       key:"role",
       name:"Role"
     },
    ]
-  return (
-    <Tableshow search={"name"} loading={loading} total={total} setpage={setpage} setlimit={setlimit} page={page} limit={limit} header={header} data={users} delet={delet_usars} yor_user={dont_show_yor_user} nofaund1={nousers} nofound2={"Users"} />
-  
+  return (<>
+  <div  className='table'>
+            
+    <Tableshow search_link={USER}  loading={loading} total={total} setpage={setpage} setlimit={setlimit} page={page} limit={limit} header={header} data={users} delet={delet_usars} yor_user={dont_show_yor_user} nofaund1={nousers} nofound2={"Users"} />
+  </div></>
   );
 }

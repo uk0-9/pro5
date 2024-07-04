@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {CATEGORIES, CATEGORY } from '../../../Api/Api'
 import { Axios } from '../../../Api/Axios';
 import Tableshow from '../Tableshow'
+import { Form } from 'react-bootstrap';
 export default function Categories() { 
   //States
   const [categories,setcategories]=useState([])  
@@ -12,7 +13,6 @@ export default function Categories() {
   const [total,settotal]=useState(0)
   const [loading,setloading]=useState(false)
 
-
 // get ail Categories 
 useEffect(()=>{
   setloading(true)
@@ -22,8 +22,6 @@ useEffect(()=>{
   .finally(()=>setloading(false))
   .catch((err)=>console.log(err))
       },[refresh_categories,limit,page])
-
-
 
 // delet
  async  function delet_usars(id){
@@ -36,7 +34,6 @@ catch (err) {
 } 
    }
 
-   
    const header=[
     {
       key:"title",
@@ -46,11 +43,20 @@ catch (err) {
       key:"image",
       name:"Img"
     },
+    {
+      key:"created_at",
+      name:"created"
+    },
+    {
+      key:"updated_at",
+      name:"updated"
+    },
    ]
     
   return (
-    <Tableshow search={"title"} loading={loading} total={total} setpage={setpage} setlimit={setlimit} page={page} limit={limit} header={header} data={categories} delet={delet_usars}   nofaund1={nocategories} nofound2={"Categories"} />
-
+    <div  className='table'>
+    <Tableshow search_link={CATEGORY}  loading={loading} total={total} setpage={setpage} setlimit={setlimit} page={page} limit={limit} header={header} data={categories} delet={delet_usars}   nofaund1={nocategories} nofound2={"Categories"} />
+    </div>
   );
 }
 

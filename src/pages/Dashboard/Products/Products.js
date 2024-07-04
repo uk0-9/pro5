@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import {CATEGORIES, CATEGORY, PRODUCT, PRODUCTS } from '../../../Api/Api'
 import { Axios } from '../../../Api/Axios';
 import Tableshow from '../Tableshow';
+import { Form } from 'react-bootstrap';
 export default function Products() { 
   //States
   const [Products,setProducts]=useState([])  
@@ -12,6 +13,7 @@ export default function Products() {
   const [page,setpage]=useState(1)
   const [total,settotal]=useState(0)
   const [loading,setloading]=useState(false)
+  const [search,setsearch]=useState("")
 // get ail usars 
   useEffect(()=>{
     setloading(true)
@@ -22,13 +24,6 @@ Axios.get(`/${PRODUCTS}?limit=${limit}&page=${page}`)
 .catch((err)=>console.log(err))
     },[refresh_Products,limit,page])
  
-
-
-
-
-
-
-
    // delet
  async  function delet_usars(id){
 try{
@@ -39,8 +34,6 @@ catch (err) {
   console.log(err);
 } 
    }
-
-   
    const header=[
     {
       key:"images",
@@ -55,6 +48,14 @@ catch (err) {
       name:"Description"
     },
     {
+      key:"created_at",
+      name:"created"
+    },
+    {
+      key:"updated_at",
+      name:"updated"
+    },
+    {
       key:"price",
       name:"Price"
     },
@@ -65,8 +66,9 @@ catch (err) {
    ]
    
   return (
-  
-    <Tableshow search={"title"} loading={loading} total={total} setpage={setpage} setlimit={setlimit} page={page} limit={limit} header={header} data={Products} delet={delet_usars}   nofaund1={noProducts} nofound2={"Products"}  />
-
+    <>
+    <div  className='table'>
+    <Tableshow search_link={PRODUCT}  loading={loading} total={total} setpage={setpage} setlimit={setlimit} page={page} limit={limit} header={header} data={Products} delet={delet_usars}   nofaund1={noProducts} nofound2={"Products"}  />
+    </div></>
   );
 }

@@ -12,5 +12,8 @@ export const CATEGORY=`category`
 export const UPDATE_CATEGORY=`category/edit`
 export const PRODUCTS=`products`
 export const PRODUCT=`product`
+export const SALE=`latest-sale`
+export const LATEST=`latest`
+export const TOP=`top-rated`
 export const UPDATE_PRODUCT=`product/edit`
 

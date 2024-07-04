@@ -1,7 +1,6 @@
 
 import { useState } from 'react';
-import './App.css';
-import './index.css';
+
 import {
   BrowserRouter,
   Routes,
@@ -17,7 +16,7 @@ import Dashboard from './pages/Dashboard/Dashboard';
 import Users from './pages/Dashboard/users/Users';
 //webside
 import Home from './pages/website/home/Home';
-import Nav from './components/website/Nav';
+import Nav from './components/website/Navbar/Nav';
 import Loading from './components/website/Loading';
 import RequireAuth from './pages/auth/protecting/RequireAuth';
 import Updatd_user from './pages/Dashboard/users/Updatd_user';
@@ -33,7 +32,20 @@ import Updatd_Categories from './pages/Dashboard/Categories/Updatd_Categories';
 import Products from './pages/Dashboard/Products/Products';
 import AddProducts from './pages/Dashboard/Products/AddProducts';
 import Updatd_Products from './pages/Dashboard/Products/Updatd_Products';
+import Nav2 from './components/website/Navbar/nav2';
+import Nav3 from './components/website/Navbar/nav3';
 
+import Website from './pages/website/Website';
+import Web_category from './pages/website/Category/Web_category';
+import Web_show_Single_product from './pages/website/Products/Web_show_Single_product';
+import Cart_page from './pages/website/Products/Cart/Cart';
+
+
+
+import'./pages/website/Products/Cart/Cart.css';
+import Profile from './pages/website/profile/Profile';
+import PageWithTailwind from './Tailwind/Tailwind_buton';
+import Favoritepage from './pages/website/profile/Favoritepage';
 
 
 export default function App() {
@@ -43,8 +55,16 @@ export default function App() {
   <BrowserRouter>
         <Routes>
           {/* Puplec Routes */}
-          <Route path="/" element={<><Nav/><Home/></>} />
-          <Route  element={<Requireback/>} >
+          <Route  element={<><Website/></>} >
+          <Route path="/" element={<Home/>} />
+          <Route path="/favorite" element={<Favoritepage/>} />
+          <Route path="/cc" element={<PageWithTailwind/>} />
+          <Route path="/cart" element={<Cart_page/>} />
+          <Route path="/product/:id" element={<Web_show_Single_product/>} />
+          <Route path="/Category" element={<Web_category/>} />
+          <Route path="/profile" element={<Profile/>} />
+          </Route>
+          <Route element={<Requireback/>} >
           <Route path="/signup" element={<><Nav/><Signup2/></>} />
           <Route path="/login" element={<><Nav/><Login2/></>} />
           </Route>
@@ -78,3 +98,21 @@ export default function App() {
       </BrowserRouter>
   );
 }
+
+
+// docker run -it \
+//     --pull=always \
+//     -e SANDBOX_USER_ID=$(id -u) \
+//     -e PERSIST_SANDBOX="true" \
+//     -e SSH_PASSWORD="randompassword" \
+//     -e WORKSPACE_MOUNT_PATH=$WORKSPACE_BASE \
+//     -v $WORKSPACE_BASE:/mnt/c/Users/a4080/Desktop/OpenDevinWorkspace \
+//     -v /var/run/docker.sock:/var/run/docker.sock \
+//     -p 3000:3000 \
+//     --add-host host.docker.internal:host-gateway \
+//     --name opendevin-app-$(date +%Y%m%d%H%M%S) \
+//     ghcr.io/opendevin/opendevin:0.6.2
+//     export WORKSPACE_BASE=/mnt/c/Users/a4080/Desktop/OpenDevinWorkspace/workspace
+
+
+//     WORKSPACE_BASE=/mnt/c/Users/a4080/Desktop/OpenDevinWorkspace

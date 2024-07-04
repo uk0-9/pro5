@@ -2,8 +2,8 @@
 
 import { Link,NavLink } from 'react-router-dom';
 import cookie from 'cookie-universal'
-import { LOGOUT } from '../../Api/Api';
-import { Axios } from '../../Api/Axios';
+import { LOGOUT } from '../../../Api/Api';
+import { Axios } from '../../../Api/Axios';
 
 
 

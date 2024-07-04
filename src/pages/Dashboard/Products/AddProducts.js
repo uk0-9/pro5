@@ -122,11 +122,9 @@ function Handil_open_images() {open_images.current.click();}
     catch(err){console.log(err)}
     }
   // get categories name and show categories
-  const [page,setpage]=useState(1)
-  const [limit,setlimit]=useState(50)
   useEffect(()=>{
-    Axios.get(`/${CATEGORIES}?limit=${limit}&page=${page}`)
-    .then((se)=>{setshow_categories(se.data.data);}
+    Axios.get(`/${CATEGORIES}`)
+    .then((se)=>{setshow_categories(se.data);}
   )
         },[])
   //show categories
@@ -313,7 +311,7 @@ const showcategories=show_categories.map((item,key)=><option key={key} value={it
 <div className="d-flex align-items-center justify-content-center gap-2 py-3 rounded mb-2 w-100 flex-column"
 style={{border:!send?"2px dashed gray":"2px dashed #0086fe",cursor:send&&"pointer"}} 
 onClick={Handil_open_images} >
-<img src={require("../../../imgs/image(1).png")} style={{ filter:!send?"grayscale(100%)":"grayscale(0%)"}} alt="upload" width="100px"/>
+<img src={require("../../../imgs/pagenate.png")} style={{ filter:!send?"grayscale(100%)":"grayscale(0%)"}} alt="upload" width="100px"/>
 <p style={{color:!send?"gray":"#0086fe"}} className=" fw-bold mb-0">Upload images</p>
 </div>
 
